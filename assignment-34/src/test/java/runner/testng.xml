@@ -11,6 +11,7 @@
     <test name="Sport Category Tests">
         <classes>
             <class name="tests.sportcategory.PostCreateCategory"/>
+            <class name="tests.sportcategory.DeleteCategoryById"/>
         </classes>
     </test>
     <test name="Authentication - Tests (Close)">

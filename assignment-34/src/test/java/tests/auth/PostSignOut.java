@@ -5,7 +5,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.TokenHelper;
+import utils.JSONHelper;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,7 +14,7 @@ public class PostSignOut {
     @Test(priority = 9, description = "TC-INT-AU-003 : User Can Sign Out With Valid Token")
     public void userCanSignOutWithValidToken() throws IOException {
         // Take token
-        String token = TokenHelper.getToken();
+        String token = JSONHelper.getJSONValueByKey("token", "token.json");
 
         // Hit endpoint & calculate response time
         long startTime = System.currentTimeMillis();

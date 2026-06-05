@@ -5,14 +5,14 @@ import body.auth.PostLoginBody;
 import core.TestUtils;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+
+import static utils.JSONHelper.saveToJSON;
 
 public class PostLogin extends BaseTest {
     @Test(priority = 1, description = "TC-INT-AU-001 : User Can Login With Valid Data")
@@ -71,16 +71,7 @@ public class PostLogin extends BaseTest {
 
         // Extract & store token
         String token = (String)data.get("token");
-        System.out.println("Token : " + token);
-        JSONObject tokenJson = new JSONObject();
-        tokenJson.put("token", token);
-
-        try (FileWriter file = new FileWriter("src/resources/json/token.json")){
-            file.write(tokenJson.toJSONString());
-            file.flush();
-        }
-
-        System.out.println("Token saved to token.json");
+        saveToJSON("token", token, "token.json");
     }
 
     @Test(priority = 1, description = "TC-INT-AU-002 : User Cant Login With Invalid Unregistered Account")

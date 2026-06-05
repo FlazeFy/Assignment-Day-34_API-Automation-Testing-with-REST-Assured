@@ -8,18 +8,16 @@ import io.restassured.response.Response;
 import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.TokenHelper;
+import utils.JSONHelper;
 
 import java.util.List;
 import java.util.Map;
 
 public class PostCreateCategory extends BaseTest {
-    private String categoryId;
-
     @Test(priority = 2, description = "TC-INT-SC-001 : User Can Create Sport Category With Valid Data")
     public void userCanCreateSportCategoryWithValidData() {
         // Get token
-        String token = TokenHelper.getToken();
+        String token = JSONHelper.getJSONValueByKey("token", "token.json");
 
         // Get dataset from CSV
         SportCategoryBody sportCategoryBody = new SportCategoryBody();
@@ -54,8 +52,9 @@ public class PostCreateCategory extends BaseTest {
             TestUtils.validateColumn(data, stringFields, "string", false);
             TestUtils.validateColumn(data, intFields, "number", false);
 
-            categoryId = res.getString("result.id");
-            System.out.println("Created Category ID: " + categoryId);
+            // Extract & store id
+            String categoryId = res.getString("result.id");
+            JSONHelper.saveToJSON("id", categoryId, "sport-category.json");
 
             // Validate performance (response time)
             Assert.assertTrue(responseTime < 2000, "Response time exceeds 2000ms");
@@ -65,7 +64,7 @@ public class PostCreateCategory extends BaseTest {
     @Test(priority = 2, description = "TC-INT-SC-002 : User Cant Create Sport Category With Invalid Name Data Type")
     public void userCantCreateSportCategoryWithInvalidNameDataType() {
         // Get token
-        String token = TokenHelper.getToken();
+        String token = JSONHelper.getJSONValueByKey("token", "token.json");
 
         // Get dataset from CSV
         SportCategoryBody sportCategoryBody = new SportCategoryBody();
