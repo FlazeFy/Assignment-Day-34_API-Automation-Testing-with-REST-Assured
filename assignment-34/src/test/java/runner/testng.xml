@@ -1,5 +1,8 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="API Test Suite" verbose="1" parallel="false">
+    <listeners>
+        <listener class-name="core.ApiTestListener"/>
+    </listeners>
     <test name="Authentication Tests">
         <classes>
             <class name="tests.auth.LoginTest"/>
@@ -11,4 +14,5 @@
             <class name="tests.sportcategory.SportCategoryTest"/>
         </classes>
     </test>
+
 </suite>
