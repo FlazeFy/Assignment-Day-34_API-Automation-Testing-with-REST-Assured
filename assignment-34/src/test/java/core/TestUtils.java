@@ -36,6 +36,17 @@ public class TestUtils {
                         Assert.assertTrue(value instanceof String, field + " is not String");
                         break;
 
+                    case "number":
+                        Assert.assertTrue(value instanceof Number, field + " is not Number");
+
+                        // Validate integer or decimal
+                        if (value instanceof Integer || value instanceof Long) {
+                            Assert.assertEquals(((Number) value).doubleValue() % 1, 0.0);
+                        } else {
+                            Assert.assertNotEquals(((Number) value).doubleValue() % 1, 0.0);
+                        }
+                        break;
+
                     default:
                         Assert.fail("Unsupported data type: " + dataType);
                 }

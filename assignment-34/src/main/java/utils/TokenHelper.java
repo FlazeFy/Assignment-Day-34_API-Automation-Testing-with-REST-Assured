@@ -8,7 +8,6 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class TokenHelper {
-
     public static String getToken() {
         try (FileReader reader = new FileReader("src/resources/json/token.json")) {
             JSONParser parser = new JSONParser();

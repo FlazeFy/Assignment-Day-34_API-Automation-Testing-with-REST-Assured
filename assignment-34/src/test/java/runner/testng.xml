@@ -10,7 +10,7 @@
     </test>
     <test name="Sport Category Tests">
         <classes>
-            <class name="tests.sportcategory.SportCategoryTest"/>
+            <class name="tests.sportcategory.PostCreateCategory"/>
         </classes>
     </test>
     <test name="Authentication - Tests (Close)">
