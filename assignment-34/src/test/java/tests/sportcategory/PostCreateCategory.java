@@ -52,6 +52,9 @@ public class PostCreateCategory extends BaseTest {
             TestUtils.validateColumn(data, stringFields, "string", false);
             TestUtils.validateColumn(data, intFields, "number", false);
 
+            // Validate created category name match with req body name
+            Assert.assertEquals(data.get("name"), payload.get("name"));
+
             // Extract & store id
             String categoryId = res.getString("result.id");
             JSONHelper.saveToJSON("id", categoryId, "sport-category.json");
