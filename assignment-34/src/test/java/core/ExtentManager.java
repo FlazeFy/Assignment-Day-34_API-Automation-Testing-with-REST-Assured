@@ -8,9 +8,7 @@ public class ExtentManager {
     private static ExtentReports extent;
 
     public static ExtentReports getExtentReports() {
-
         if (extent == null) {
-
             File dir = new File("reports");
             if (!dir.exists()) {
                 dir.mkdirs();

@@ -1,13 +1,9 @@
 package core;
 
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
-import utils.ConfigReader;
-
 import java.util.List;
 import java.util.Map;
-
 import static io.restassured.RestAssured.given;
 
 public class TestUtils {
@@ -48,12 +44,11 @@ public class TestUtils {
     }
 
     public static Response templateResponsePost(String endpoint, int expectedStatusCode, String endpointName, Object payload, String token) {
-        RestAssured.baseURI = ConfigReader.getProperty("baseUrl");
         String contentType = "application/json";
         Response response;
 
         if (token != null && payload != null) {
-            response = RestAssured.given()
+            response = given()
                     .contentType(contentType)
                     .header("Authorization", "Bearer " + token)
                     .body(payload)
@@ -63,7 +58,7 @@ public class TestUtils {
                     .statusCode(expectedStatusCode)
                     .extract().response();
         } else if (token != null) {
-            response = RestAssured.given()
+            response = given()
                     .contentType(contentType)
                     .header("Authorization", "Bearer " + token)
                     .when()
@@ -72,7 +67,7 @@ public class TestUtils {
                     .statusCode(expectedStatusCode)
                     .extract().response();
         } else if (payload != null) {
-            response = RestAssured.given()
+            response = given()
                     .contentType(contentType)
                     .body(payload)
                     .when()
@@ -81,7 +76,7 @@ public class TestUtils {
                     .statusCode(expectedStatusCode)
                     .extract().response();
         } else {
-            response = RestAssured.given()
+            response = given()
                     .contentType(contentType)
                     .when()
                     .post(endpoint)

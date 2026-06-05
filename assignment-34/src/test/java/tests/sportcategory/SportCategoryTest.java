@@ -12,7 +12,7 @@ import utils.Utils;
 public class SportCategoryTest extends BaseTest {
     private String categoryId;
 
-    @Test
+    @Test(priority = 2, description = "TC-INT-AU-002 : User Cant Login With Invalid Unregistered Account")
     public void createSportCategoryTest() {
         // Get token
         SportCategoryBody sportCategoryBody = new SportCategoryBody();
@@ -28,8 +28,6 @@ public class SportCategoryTest extends BaseTest {
                 .post("v1/sport-categories/create")
                 .then()
                 .extract().response();
-
-        System.out.println("Create response: " + response.asString());
 
         categoryId = response.jsonPath().getString("result.id");
         Assert.assertNotNull(categoryId,"Category id is not to be null");

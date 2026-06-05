@@ -5,14 +5,17 @@
     </listeners>
     <test name="Authentication Tests">
         <classes>
-            <class name="tests.auth.LoginTest"/>
+            <class name="tests.auth.PostLogin"/>
         </classes>
     </test>
     <test name="Sport Category Tests">
         <classes>
-            <class name="tests.auth.LoginTest"/>
             <class name="tests.sportcategory.SportCategoryTest"/>
         </classes>
     </test>
-
+    <test name="Authentication - Tests (Close)">
+        <classes>
+            <class name="tests.auth.PostSignOut"/>
+        </classes>
+    </test>
 </suite>
