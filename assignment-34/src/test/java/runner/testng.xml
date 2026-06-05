@@ -10,6 +10,7 @@
     </test>
     <test name="Sport Category Tests">
         <classes>
+            <class name="tests.sportcategory.GetCategory"/>
             <class name="tests.sportcategory.PostCreateCategory"/>
             <class name="tests.sportcategory.UpdateCategoryById"/>
             <class name="tests.sportcategory.DeleteCategoryById"/>

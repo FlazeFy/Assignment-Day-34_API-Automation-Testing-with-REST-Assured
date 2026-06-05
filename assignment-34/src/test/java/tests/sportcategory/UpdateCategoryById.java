@@ -53,10 +53,6 @@ public class UpdateCategoryById {
         // Validate updated category name match with req body name
         Assert.assertEquals(data.get("name"), dataset.get(0).get("name"));
 
-        // Extract & store id
-        String categoryId = res.getString("result.id");
-        JSONHelper.saveToJSON("id", categoryId, "sport-category.json");
-
         // Validate performance (response time)
         Assert.assertTrue(responseTime < 2000, "Response time exceeds 2000ms");
     }

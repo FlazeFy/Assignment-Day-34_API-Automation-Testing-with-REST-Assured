@@ -124,4 +124,25 @@ public class TestUtils {
 
         return response;
     }
+
+    public static Response templateResponseGet(String endpoint, int expectedStatusCode, String endpointName, String token) {
+        String contentType = "application/json";
+        Response response;
+
+        response = given()
+                .contentType(contentType)
+                .header("Authorization", "Bearer " + token)
+                .when()
+                .get(endpoint)
+                .then()
+                .statusCode(expectedStatusCode)
+                .extract().response();
+
+        System.out.println("==== GET : " + endpointName + " ====");
+        System.out.println("Status Code : " + response.getStatusCode());
+        System.out.println("Response : ");
+        System.out.println(response.asPrettyString());
+
+        return response;
+    }
 }
