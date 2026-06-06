@@ -20,12 +20,4 @@ public class SportCategoryBody {
 
         return body;
     }
-
-    public JSONObject updateSportCategoryData(String name) {
-        JSONObject body = new JSONObject();
-
-        body.put("name", name);
-
-        return body;
-    }
 }

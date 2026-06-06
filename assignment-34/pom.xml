@@ -119,6 +119,13 @@
             <artifactId>allure-testng</artifactId>
             <version>2.25.0</version>
         </dependency>
+
+        <!-- Open CSV (CSV Reader) -->
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>5.9</version>
+        </dependency>
     </dependencies>
 
     <build>

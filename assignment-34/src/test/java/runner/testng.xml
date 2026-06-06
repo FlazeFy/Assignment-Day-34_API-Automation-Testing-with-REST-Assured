@@ -16,6 +16,11 @@
             <class name="tests.sportcategory.DeleteCategoryById"/>
         </classes>
     </test>
+    <test name="Sport Activity Tests">
+        <classes>
+            <class name="tests.sportactivity.PostCreateActivity"/>
+        </classes>
+    </test>
     <test name="Transaction Tests">
         <classes>
             <class name="tests.transaction.GetAllTransaction"/>
