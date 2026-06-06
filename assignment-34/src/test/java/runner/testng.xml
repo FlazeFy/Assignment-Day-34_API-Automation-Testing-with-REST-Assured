@@ -8,6 +8,11 @@
             <class name="tests.auth.PostLogin"/>
         </classes>
     </test>
+    <test name="Payment Tests">
+        <classes>
+            <class name="tests.paymentmethod.GetPaymentMethod"/>
+        </classes>
+    </test>
     <test name="Sport Category Tests">
         <classes>
             <class name="tests.sportcategory.GetCategory"/>

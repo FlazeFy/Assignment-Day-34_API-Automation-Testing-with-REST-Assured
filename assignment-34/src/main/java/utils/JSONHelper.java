@@ -34,8 +34,6 @@ public class JSONHelper {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 }
 
