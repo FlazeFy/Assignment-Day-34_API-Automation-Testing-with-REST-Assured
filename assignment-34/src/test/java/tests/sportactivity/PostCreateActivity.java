@@ -36,8 +36,6 @@ public class PostCreateActivity extends BaseTest {
                     token
             );
             long responseTime = System.currentTimeMillis() - startTime;
-            System.out.println("check");
-            System.out.println(response.asPrettyString());
 
             // Parse response
             JsonPath res = response.jsonPath();

@@ -29,6 +29,7 @@
     <test name="Transaction Tests">
         <classes>
             <class name="tests.transaction.GetAllTransaction"/>
+            <class name="tests.transaction.PostCreateTransaction"/>
         </classes>
     </test>
     <test name="Authentication - Tests (Close)">
